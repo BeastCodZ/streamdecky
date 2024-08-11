@@ -1,33 +1,56 @@
-"use client"
+"use client";
 
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import "./globals.css";
 
-import './globals.css'
-
-function ButtonItem({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="buttonitems">
-      <img src={src} alt={alt} />
-    </div>
-  );
+interface ButtonData {
+  name: string;
+  path: string;
+  args: string;
+  icon: string;
 }
 
-export default function Home() {
-  const buttonData = [
-    { src: "https://seeklogo.com/images/V/valorant-logo-FAB2CA0E55-seeklogo.com.png", alt: "Valorant Icon" },
-    { src: "https://www.freepnglogos.com/uploads/gta-5-logo-png/grand-theft-auto-v-1.png", alt: "GTA V Icon" },
-    { src: '/add.png', alt: "Custom Icon 1" },
-    
-  ];
+const Home: React.FC = () => {
+  const [buttonData, setButtonData] = useState<ButtonData[]>([]);
+
+  useEffect(() => {
+    fetch("/settings.json")
+      .then((response) => response.json())
+      .then((data) => setButtonData(data))
+      .catch((error) => console.error("Error fetching settings:", error));
+  }, []);
+
+  const handleButtonClick = async (appName: string) => {
+    try {
+      const response = await fetch("/api/launch", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ appName }),
+      });
+      const data = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="deck">
       <h1 className="hero">StreamDeck</h1>
       <div className="row">
         {buttonData.map((item, index) => (
-          <ButtonItem key={index} src={item.src} alt={item.alt} />
+          <div
+            key={index}
+            className="buttonitems"
+            onClick={() => handleButtonClick(item.name)}
+          >
+            <img src={item.icon} alt={item.name} />
+          </div>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default Home;
