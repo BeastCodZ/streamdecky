@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/366b27da-289f-43b8-a3d5-ea4124131bed)
+
 # StreamDecky
 
 StreamDecky is a web-based application that allows you to create and manage customizable buttons that launch applications and handle custom URI schemes. The application is built using Next.js for the frontend and Node.js (Express) for the backend, providing a seamless experience for managing and launching applications remotely.
@@ -8,6 +10,13 @@ StreamDecky is a web-based application that allows you to create and manage cust
 - **Remote Application Launching**: Launch applications or handle custom URIs from the server-side, keeping the client-side light and secure.
 - **Customizable Interface**: Easily add or modify buttons by updating the `settings.json` file.
 - **Responsive Design**: The UI adjusts the grid layout based on the number of buttons, ensuring a consistent look across different screen sizes.
+
+## Pending stuff
+
+- Settings Page
+- Ability to close applications
+- more shortcuts(change of volume and stuff)
+- Saving application layout and opening bulk application
 
 ## Getting Started
 
@@ -43,7 +52,7 @@ node server.js
 # The server will run on the same port as the Next.js application
 ```
 
-Usage
+### Usage
 Configuration
 settings.json: This file contains the configuration for the buttons. Each button has a name, path (for executable applications), uri (for custom URI schemes), and icon.
 
@@ -80,5 +89,10 @@ Once the server and development server are running, open your browser and naviga
 Settings Page
 The settings page allows you to view and update the settings.json file live. Any changes made will automatically reflect in the StreamDecky interface.
 
-License
+# Screenshots
+
+![image](https://github.com/user-attachments/assets/8af8d9db-68bf-4bc3-ae1a-58477dc4389c)
+
+
+# License
 This project is licensed under the MIT License
