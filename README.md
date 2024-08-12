@@ -22,7 +22,8 @@ StreamDecky is a web-based application that allows you to create and manage cust
 
    ```bash
    git clone https://github.com/yourusername/StreamDecky.git
-   cd StreamDecky```
+   cd StreamDecky
+   ```
 2. **Install the dependencies**
   ```bash
   npm install
