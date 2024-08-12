@@ -1,6 +1,6 @@
-# StreamDeck
+# StreamDecky
 
-StreamDeck is a web-based application that allows you to create and manage customizable buttons that launch applications and handle custom URI schemes. The application is built using Next.js for the frontend and Node.js (Express) for the backend, providing a seamless experience for managing and launching applications remotely.
+StreamDecky is a web-based application that allows you to create and manage customizable buttons that launch applications and handle custom URI schemes. The application is built using Next.js for the frontend and Node.js (Express) for the backend, providing a seamless experience for managing and launching applications remotely.
 
 ## Features
 
@@ -21,8 +21,8 @@ StreamDeck is a web-based application that allows you to create and manage custo
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/streamdeck.git
-   cd streamdeck```
+   git clone https://github.com/yourusername/StreamDecky.git
+   cd StreamDecky```
 2. **Install the dependencies**
   ```bash
   npm install
@@ -74,10 +74,10 @@ Example settings.json:
   ]
 ```
 Running the Application
-Once the server and development server are running, open your browser and navigate to http://localhost:3000. You will see the StreamDeck interface with buttons based on the settings.json configuration.
+Once the server and development server are running, open your browser and navigate to http://localhost:3000. You will see the StreamDecky interface with buttons based on the settings.json configuration.
 
 Settings Page
-The settings page allows you to view and update the settings.json file live. Any changes made will automatically reflect in the StreamDeck interface.
+The settings page allows you to view and update the settings.json file live. Any changes made will automatically reflect in the StreamDecky interface.
 
 License
 This project is licensed under the MIT License
