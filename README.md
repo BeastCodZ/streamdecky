@@ -43,7 +43,7 @@ node server.js
 # The server will run on the same port as the Next.js application
 ```
 
-Usage
+### Usage
 Configuration
 settings.json: This file contains the configuration for the buttons. Each button has a name, path (for executable applications), uri (for custom URI schemes), and icon.
 
@@ -80,5 +80,10 @@ Once the server and development server are running, open your browser and naviga
 Settings Page
 The settings page allows you to view and update the settings.json file live. Any changes made will automatically reflect in the StreamDecky interface.
 
-License
+# Screenshots
+
+![image](https://github.com/user-attachments/assets/8af8d9db-68bf-4bc3-ae1a-58477dc4389c)
+
+
+# License
 This project is licensed under the MIT License
