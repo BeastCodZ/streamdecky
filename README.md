@@ -39,7 +39,7 @@ StreamDeck is a web-based application that allows you to create and manage custo
 Start the Node.js server:
 ```bash
 node server.js
-The server will run on the same port as the Next.js application
+# The server will run on the same port as the Next.js application
 ```
 
 Usage
