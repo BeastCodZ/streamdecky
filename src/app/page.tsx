@@ -12,13 +12,60 @@ interface ButtonData {
 
 const Home: React.FC = () => {
   const [buttonData, setButtonData] = useState<ButtonData[]>([]);
+  const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false);
+
+  const adjustGridLayout = () => {
+    const container = document.querySelector('.row') as HTMLElement;
+    if (!container) return;
+
+    const items = container.children;
+    const totalItems = items.length;
+    let rows: number;
+    console.log(totalItems)
+    if (totalItems < 5 ) {
+      rows = totalItems;
+    } else if (totalItems === 5) {
+      rows = 5;
+    } else if (totalItems === 3 || totalItems == 6) {
+      rows = 3;
+    } else if (totalItems === 7 || totalItems == 8) {
+      rows = 4;
+    } else {
+      rows = 5;
+    }
+
+    container.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
+  };
 
   useEffect(() => {
-    fetch("/settings.json")
-      .then((response) => response.json())
-      .then((data) => setButtonData(data))
-      .catch((error) => console.error("Error fetching settings:", error));
+    const fetchButtonData = async () => {
+      try {
+        const response = await fetch("/settings.json");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        setButtonData(data);
+        setIsDataLoaded(true); // Data loaded, update state
+      } catch (error) {
+        console.error("Error fetching settings:", error);
+      }
+    };
+
+    fetchButtonData();
+
+    // Adjust grid layout on window resize
+    window.addEventListener('resize', adjustGridLayout);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', adjustGridLayout);
+    };
   }, []);
+
+  useEffect(() => {
+    if (isDataLoaded) {
+      adjustGridLayout(); // Adjust layout once data is loaded
+    }
+  }, [isDataLoaded]);
 
   const handleButtonClick = async (appName: string) => {
     try {
@@ -30,14 +77,15 @@ const Home: React.FC = () => {
         body: JSON.stringify({ appName }),
       });
       const data = await response.json();
+      console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error launching application:", error);
     }
   };
 
   return (
     <div className="deck">
-      <h1 className="hero">StreamDeck</h1>
+      <h1 className="hero">StreamDecky</h1>
       <div className="row">
         {buttonData.map((item, index) => (
           <div

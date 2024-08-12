@@ -14,6 +14,13 @@
       "processName": "ExampleApp.exe"
     },
     {
+      "name": "Tekken 8",
+      "path": "com.epicgames.launcher://apps/0584d2013f0149a791e7b9bad0eec102%3A6e563a2c0f5f46e3b4e88b5f4ed50cca%3A9d2d0eb64d5c44529cece33fe2a46482?action=launch&silent=true",
+      "args": "",
+      "icon": "https://img.playstationtrophies.org/images/2024/01/24/icon/10e1c115a12eb21755f86f0d7a64548d-l.png",
+      "processName": "ExampleApp.exe"
+    },
+    {
       "name": "Settings",
       "path": "",
       "args": "",
