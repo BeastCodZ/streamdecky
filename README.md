@@ -20,10 +20,10 @@ StreamDecky is a web-based application that allows you to create and manage cust
 
 1. **Clone the repository:**
 
-   ```bash
+```bash
    git clone https://github.com/yourusername/StreamDecky.git
    cd StreamDecky
-   ```
+```
 2. **Install the dependencies**
   ```bash
   npm install
@@ -39,8 +39,8 @@ StreamDecky is a web-based application that allows you to create and manage cust
 ### Running the Server
 Start the Node.js server:
 ```bash
-node server.js
-# The server will run on the same port as the Next.js application
+   node server.js
+   # The server will run on the same port as the Next.js application
 ```
 
 Usage
