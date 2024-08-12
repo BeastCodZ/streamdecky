@@ -44,7 +44,7 @@ const Home: React.FC = () => {
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
         setButtonData(data);
-        setIsDataLoaded(true); // Data loaded, update state
+        setIsDataLoaded(true);
       } catch (error) {
         console.error("Error fetching settings:", error);
       }
@@ -52,10 +52,8 @@ const Home: React.FC = () => {
 
     fetchButtonData();
 
-    // Adjust grid layout on window resize
     window.addEventListener('resize', adjustGridLayout);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', adjustGridLayout);
     };
@@ -63,7 +61,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     if (isDataLoaded) {
-      adjustGridLayout(); // Adjust layout once data is loaded
+      adjustGridLayout();
     }
   }, [isDataLoaded]);
 

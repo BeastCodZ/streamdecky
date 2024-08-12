@@ -1,4 +1,3 @@
-// pages/settings.tsx
 import React, { useEffect, useState } from 'react';
 
 const Settings: React.FC = () => {

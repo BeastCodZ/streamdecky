@@ -1,7 +1,7 @@
 {
-  "name": "streamdeck",
+  "name": "streamdecky",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
