@@ -9,6 +9,13 @@ StreamDecky is a web-based application that allows you to create and manage cust
 - **Customizable Interface**: Easily add or modify buttons by updating the `settings.json` file.
 - **Responsive Design**: The UI adjusts the grid layout based on the number of buttons, ensuring a consistent look across different screen sizes.
 
+## Pending stuff
+
+- Settings Page
+- Ability to close applications
+- more shortcuts(change of volume and stuff)
+- Saving application layout and opening bulk application
+
 ## Getting Started
 
 ### Prerequisites
