@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/366b27da-289f-43b8-a3d5-ea4124131bed)
+
 # StreamDecky
 
 StreamDecky is a web-based application that allows you to create and manage customizable buttons that launch applications and handle custom URI schemes. The application is built using Next.js for the frontend and Node.js (Express) for the backend, providing a seamless experience for managing and launching applications remotely.
