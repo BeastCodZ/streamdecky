@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# StreamDecky
+
+StreamDecky is a web-based application that allows you to create and manage customizable buttons that launch applications and handle custom URI schemes. The application is built using Next.js for the frontend and Node.js (Express) for the backend, providing a seamless experience for managing and launching applications remotely.
+
+## Features
+
+- **Dynamic Button Generation**: Buttons are dynamically generated based on a `settings.json` configuration file.
+- **Remote Application Launching**: Launch applications or handle custom URIs from the server-side, keeping the client-side light and secure.
+- **Customizable Interface**: Easily add or modify buttons by updating the `settings.json` file.
+- **Responsive Design**: The UI adjusts the grid layout based on the number of buttons, ensuring a consistent look across different screen sizes.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- **Node.js** (version 14 or higher)
+- **npm** or **yarn**
+
+### Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/StreamDecky.git
+cd StreamDecky
+```
+2. **Install the dependencies**
+```bash
+npm install
+# or
+yarn install
+```
+3. **Start the development server**
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+### Running the Server
+Start the Node.js server:
+```bash
+node server.js
+# The server will run on the same port as the Next.js application
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Usage
+Configuration
+settings.json: This file contains the configuration for the buttons. Each button has a name, path (for executable applications), uri (for custom URI schemes), and icon.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Example settings.json:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```json
+[
+    {
+      "name": "Valorant",
+      "path": "C:/Riot Games/Riot Client/RiotClientServices.exe",
+      "args": "--launch-product=valorant --launch-patchline=live",
+      "icon": "/icons/valorant.png",
+      "processName": "VALORANT-Win64-Shipping.exe"
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "path": "com.epicgames.launcher://apps/0584d2013f0149a791e7b9bad0eec102%3A6e563a2c0f5f46e3b4e88b5f4ed50cca%3A9d2d0eb64d5c44529cece33fe2a46482?action=launch&silent=true",
+      "args": "",
+      "icon": "/icons/gta5.png",
+      "processName": "GTAV.exe"
+    },
+    {
+      "name": "Settings",
+      "path": "",
+      "args": "",
+      "icon": "/settings.png",
+      "processName": ""
+    }
+  ]
+```
+Running the Application
+Once the server and development server are running, open your browser and navigate to http://localhost:3000. You will see the StreamDecky interface with buttons based on the settings.json configuration.
 
-## Learn More
+Settings Page
+The settings page allows you to view and update the settings.json file live. Any changes made will automatically reflect in the StreamDecky interface.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+License
+This project is licensed under the MIT License
