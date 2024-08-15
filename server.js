@@ -21,10 +21,13 @@ const isCustomScheme = (str) => /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(str);
 
 const getCommand = (path, args) => {
   if (isCustomScheme(path)) {
+    console.log("executable file") 
     return `start "" "${path}" ${args ? args : ""}`;
-  } else if(path[0]="$") {
+   } else if(path.charAt(0)=="$") {
+    console.log("custom command")  
     return path.slice(1);
   } else {
+    console.log("URI") 
     return `"${path}" ${args ? args : ""}`;
   }
 };
@@ -41,7 +44,6 @@ server.post("/api/launch", (req, res) => {
   const command = getCommand(appSetting.path, appSetting.args);
   
   exec(command)
-  console.log("Executed, ", command) 
 })
 
 app.prepare().then(() => {
