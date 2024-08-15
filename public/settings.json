@@ -26,5 +26,12 @@
       "args": "",
       "icon": "/settings.png",
       "processName": ""
+    },
+    {
+      "name": "Close All",
+      "path": "$taskkill /IM discord.exe /IM discord.exe /F",
+      "args": "",
+      "icon": "/x.png",
+      "processName": ""
     }
   ]

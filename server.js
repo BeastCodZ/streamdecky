@@ -22,6 +22,8 @@ const isCustomScheme = (str) => /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(str);
 const getCommand = (path, args) => {
   if (isCustomScheme(path)) {
     return `start "" "${path}" ${args ? args : ""}`;
+  } else if(path[0]="$") {
+    return path.slice(1);
   } else {
     return `"${path}" ${args ? args : ""}`;
   }
@@ -47,8 +49,8 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(3000, (err) => {
+  server.listen(5000, (err) => {
     if (err) throw err;
-    console.log("> Ready on http://localhost:3000");
+    console.log("> Ready on http://localhost:5000");
   });
 })
