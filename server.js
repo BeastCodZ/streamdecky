@@ -17,20 +17,21 @@ const getSettings = () => {
   return settings;
 };
 
-const isCustomScheme = (str) => /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(str);
-
-const getCommand = (path, args) => {
-  if (isCustomScheme(path)) {
-    console.log("executable file") 
-    return `start "" "${path}" ${args ? args : ""}`;
-   } else if(path.charAt(0)=="$") {
-    console.log("custom command")  
-    return path.slice(1);
+const getCommand = (type, cmd) => {
+  if (type == "exe") {
+    return `${cmd}`;
+  } else if (type == "URI") {
+    return `start "" "${cmd}"`;
+  } else if (type == "navigation") {
+    return `start "" "${cmd}"`;
+  } else if (type == "command") {
+    return `${cmd}`;
   } else {
-    console.log("URI") 
-    return `"${path}" ${args ? args : ""}`;
+    console.error("Invalid type:", type);
+    return "";
   }
 };
+
 
 server.post("/api/launch", (req, res) => {
   const { appName } = req.body;
@@ -40,11 +41,62 @@ server.post("/api/launch", (req, res) => {
   if (!appSetting) {
     return res.status(400).json({ message: "Unknown application" });
   }
+  const command = getCommand(appSetting.type, appSetting.cmd);
 
-  const command = getCommand(appSetting.path, appSetting.args);
+  console.log(command)
   
-  exec(command)
-})
+  if (!command) {
+    return res.status(400).json({ message: "Invalid command" });
+  }
+
+  console.log("Executing command:", command);
+
+  exec(command, (err) => {
+    if (err) {
+      console.error("Error launching application:", err.message);
+      return res.status(500).json({ message: "Error launching application" });
+    }
+    res.status(200).json({ message: `${appName} launched successfully` });
+  });
+});
+
+server.post("/api/status", (req, res) => {
+  const { appName } = req.body;
+  const settings = getSettings();
+  const appSetting = settings.find((item) => item.name === appName);
+
+  if (!appSetting) {
+    return res.status(400).json({ message: "Unknown application" });
+  }
+
+  const processName = appSetting.processName;
+  exec(`tasklist /fi "ImageName eq ${processName}"`, (err, stdout) => {
+    if (err) {
+      return res.status(200).json({ message: "Not Running" });
+    }
+    const isRunning = stdout.toLowerCase().includes(processName.toLowerCase());
+    res.status(200).json({ isRunning });
+  });
+});
+
+server.post("/api/kill", (req, res) => {
+  const { appName } = req.body;
+  const settings = getSettings();
+  const appSetting = settings.find((item) => item.name === appName);
+
+  if (!appSetting) {
+    return res.status(400).json({ message: "Unknown application" });
+  }
+
+  const processName = appSetting.processName;
+  exec(`taskkill /IM ${processName} /F`, (err, stdout, stderr) => {
+    if (err) {
+      return res.status(500).json({ message: "Error killing process" });
+    }
+    res.status(200).json({ message: `${appName} terminated successfully` });
+  });
+});
+
 
 app.prepare().then(() => {
   server.all("*", (req, res) => {
