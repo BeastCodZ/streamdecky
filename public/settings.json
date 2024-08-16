@@ -5,7 +5,7 @@
       "cmd": "\"C:\\Riot Games\\Riot Client\\RiotClientServices.exe\" --launch-product=valorant --launch-patchline=live",      
       "type": "exe",
       "icon": "/icons/valorant.png",
-      "processName": "Discord.exe"
+      "processName": "VALORANT-Win64-Shipping.exe"
     },
     {
       "name": "Grand Theft Auto V",
@@ -16,11 +16,26 @@
     },
     {
       "name": "Tekken 8",
-      "cmd": "",
+      "cmd": "\"D:\\Games\\TEKKEN 8\\Polaris\\Binaries\\Win64\\Polaris-Win64-Shipping.exe\"",
       "type": "exe",
       "icon": "https://img.playstationtrophies.org/images/2024/01/24/icon/10e1c115a12eb21755f86f0d7a64548d-l.png",
-      "processName": "ExampleApp.exe"
+      "processName": "Polaris-Win64-Shipping.exe"
     },
+    {
+      "name": "Discord",
+      "cmd": "\"C:\\Users\\BeastCodZ\\AppData\\Local\\Discord\\Update.exe\" --processStart Discord.exe",
+      "type": "exe",
+      "icon": "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg",
+      "processName": "Discord.exe"
+    },
+    {
+      "name": "Spotify",
+      "cmd": "\"C:\\Users\\BeastCodZ\\AppData\\Roaming\\Spotify\\Spotify.exe\"",
+      "type": "exe",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/800px-Spotify_App_Logo.svg.png",
+      "processName": "Spotify.exe"
+    },
+    
     {
       "name": "Settings",
       "cmd": "",

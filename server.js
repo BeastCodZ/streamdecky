@@ -74,7 +74,7 @@ server.post("/api/status", (req, res) => {
     if (err) {
       return res.status(200).json({ message: "Not Running" });
     }
-    const isRunning = stdout.toLowerCase().includes(processName.toLowerCase());
+    const isRunning = stdout.toLowerCase().includes(appName.toLowerCase() || processName.toLowerCase());
     res.status(200).json({ isRunning });
   });
 });
