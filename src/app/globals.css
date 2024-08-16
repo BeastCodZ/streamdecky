@@ -40,6 +40,7 @@ html {
   background-color: #2525254a;
   border-radius: 10px;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -61,9 +62,6 @@ html {
   border-radius: 5px;
 }
 
-.buttonitems {
-  position: relative; /* Ensure button container is relatively positioned */
-}
 
 .overlay {
   position: absolute;
@@ -72,8 +70,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1; /* Ensure overlay is above other content */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .overlay button {

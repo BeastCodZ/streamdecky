@@ -89,7 +89,7 @@ server.post("/api/kill", (req, res) => {
   }
 
   const processName = appSetting.processName;
-  exec(`taskkill /IM ${processName} /F`, (err, stdout, stderr) => {
+  exec(`taskkill /IM ${processName} /F`, (err) => {
     if (err) {
       return res.status(500).json({ message: "Error killing process" });
     }
