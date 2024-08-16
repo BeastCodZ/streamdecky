@@ -70,11 +70,13 @@ server.post("/api/status", (req, res) => {
   }
 
   const processName = appSetting.processName;
+  console.log(processName);
   exec(`tasklist /fi "ImageName eq ${processName}"`, (err, stdout) => {
     if (err) {
       return res.status(200).json({ message: "Not Running" });
     }
-    const isRunning = stdout.toLowerCase().includes(appName.toLowerCase() || processName.toLowerCase());
+    console.log(stdout);
+    const isRunning = stdout.toLowerCase().includes(processName.toLowerCase().substring(0,25))
     res.status(200).json({ isRunning });
   });
 });
