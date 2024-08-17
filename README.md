@@ -14,7 +14,6 @@ StreamDecky is a web-based application that allows you to create and manage cust
 ## Pending stuff
 
 - Settings Page
-- Ability to close applications
 - more shortcuts(change of volume and stuff)
 - Saving application layout and opening bulk application
 
