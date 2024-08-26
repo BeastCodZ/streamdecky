@@ -58,25 +58,48 @@ settings.json: This file contains the configuration for the buttons. Each button
 Example settings.json:
 
 ```json
+
 [
     {
       "name": "Valorant",
-      "path": "C:/Riot Games/Riot Client/RiotClientServices.exe",
-      "args": "--launch-product=valorant --launch-patchline=live",
+      "cmd": "\"C:\\Riot Games\\Riot Client\\RiotClientServices.exe\" --launch-product=valorant --launch-patchline=live",      
+      "type": "exe",
       "icon": "/icons/valorant.png",
       "processName": "VALORANT-Win64-Shipping.exe"
     },
     {
       "name": "Grand Theft Auto V",
-      "path": "com.epicgames.launcher://apps/0584d2013f0149a791e7b9bad0eec102%3A6e563a2c0f5f46e3b4e88b5f4ed50cca%3A9d2d0eb64d5c44529cece33fe2a46482?action=launch&silent=true",
-      "args": "",
+      "cmd": "com.epicgames.launcher://apps/0584d2013f0149a791e7b9bad0eec102%3A6e563a2c0f5f46e3b4e88b5f4ed50cca%3A9d2d0eb64d5c44529cece33fe2a46482?action=launch&silent=true",
+      "type": "URI",
       "icon": "/icons/gta5.png",
-      "processName": "GTAV.exe"
+      "processName": "GTA5.exe"
     },
     {
+      "name": "Tekken 8",
+      "cmd": "\"D:\\Games\\TEKKEN 8\\Polaris\\Binaries\\Win64\\Polaris-Win64-Shipping.exe\"",
+      "type": "exe",
+      "icon": "https://img.playstationtrophies.org/images/2024/01/24/icon/10e1c115a12eb21755f86f0d7a64548d-l.png",
+      "processName": "Polaris-Win64-Shipping.exe"
+    },
+    {
+      "name": "Discord",
+      "cmd": "\"C:\\Users\\BeastCodZ\\AppData\\Local\\Discord\\Update.exe\" --processStart Discord.exe",
+      "type": "exe",
+      "icon": "https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg",
+      "processName": "Discord.exe"
+    },
+    {
+      "name": "Spotify",
+      "cmd": "\"C:\\Users\\BeastCodZ\\AppData\\Roaming\\Spotify\\Spotify.exe\"",
+      "type": "exe",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/800px-Spotify_App_Logo.svg.png",
+      "processName": "Spotify.exe"
+    },
+    
+    {
       "name": "Settings",
-      "path": "",
-      "args": "",
+      "cmd": "",
+      "type": "misc",
       "icon": "/settings.png",
       "processName": ""
     }
